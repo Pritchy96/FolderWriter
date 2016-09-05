@@ -1,0 +1,40 @@
+Materials
+GUI
+Effects
+Meshes
+	Player
+		RobotHands01
+		MonsterHands01
+	Destructible
+		Buildings
+	Pickupable
+		Car01
+Prefabs
+	Player
+	Destructible
+	Pickupable
+Scenes
+	GUI
+	Levels
+	TestScenes
+Scripts
+	Generic
+		Debug
+		Extensions
+		Framework
+		Graphics
+		IO
+		Math
+	Game
+		Debug
+		Gameplay
+			Player
+			Destructible
+			Pickupable
+	Framework
+	Graphics
+	GUI
+Textures
+GUI
+Effects
+Editor

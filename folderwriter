@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#The depth the folder we are making wants to be at.
+folderDepth=0
+#The depth the script is currently at.
+currentDepth=0
+
+while IFS='' read -r line || [[ -n "$line" ]]; do
+
+    #Get folder depth
+    folderDepth=$(echo "$line" | awk '{print gsub(/\t/,"")}')
+
+    #Get to correct depth.
+    while [ "$currentDepth" -gt "$folderDepth" ]
+    do
+        currentDepth=$((currentDepth-1))
+        cd ../
+    done
+
+    #Strip folder name of new line, tabs etc.
+    foldername=$(echo "$line" | tr -d '\040\011\012\015')
+    #Make the dir if it doesn't exist.
+    mkdir -p "$foldername"
+
+    cd "$foldername"
+    currentDepth=$((currentDepth+1))
+done < "$1"
